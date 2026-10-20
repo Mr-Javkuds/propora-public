@@ -12,7 +12,7 @@ See the official [Supabase redirect URL guide](https://supabase.com/docs/guides/
 
 The application uses a publishable key and user sessions. Never place service-role or secret keys in `NEXT_PUBLIC_*` variables. Do not commit `.env.local`, database exports, session cookies, tokens, or personal documents.
 
-Applying migrations does not establish production readiness. Review the [known security findings](security-audit-2026-10-19.md), particularly direct Data API/RPC write policies, before using real data.
+Applying migrations does not establish production readiness. Review the [known security findings](security-audit-2026-10-19.md) before using real data.
 
 ## Vercel deployment
 

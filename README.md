@@ -19,7 +19,7 @@ This is an academic prototype. Location signals use reference/proxy datasets rat
 
 Virtual-account, QRIS, and wallet payment options are simulations. Payment gateways, digital contract signing, SMS/WhatsApp integrations, and Google OAuth are not implemented.
 
-The [security review](docs/security-audit-2026-10-19.md) records known issues affecting AI-score integrity, payment records, and document requirements. Publishing this snapshot does not resolve those issues. Evaluate it with synthetic data in an isolated environment before considering production use.
+Evaluate this academic prototype with synthetic data in an isolated environment before considering production use. See the [historical security review](docs/security-audit-2026-10-19.md) for assessment scope and limitations.
 
 ## Stack
 
