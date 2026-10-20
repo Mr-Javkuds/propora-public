@@ -1,0 +1,20 @@
+.pd-business-report { --compare-columns: 1; --compare-accent: #792d35; --compare-line: #e1e6e3; margin-top: 42px; min-width: 0; }
+.pd-report-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 22px; }
+.pd-report-heading h2 { margin: 0; font-size: var(--propora-text-section); }
+.pd-report-heading > div > p:last-child { margin: 10px 0 0; max-width: 740px; color: #697270; font-size: var(--propora-text-label); line-height: 1.7; }
+.pd-report-heading > button { flex-shrink: 0; }
+.pd-report-heading > button:disabled { opacity: .6; cursor: wait; }
+.pd-report-factors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.pd-report-factors article { padding: 22px; background: white; border: 1px solid #e1e6e3; border-radius: 8px; }
+.pd-report-factors h3 { margin: 14px 0 8px; font-size: var(--propora-text-title); }
+.pd-report-factors p { margin: 0; color: #58615e; font-size: var(--propora-text-label); line-height: 1.8; }
+.pd-report-factors article > div { margin-top: 16px; padding-top: 14px; border-top: 1px dashed #e1e6e3; }
+.pd-report-factors article > div strong { display: block; margin-bottom: 5px; font-size: var(--propora-text-label); }
+.pd-factor-tag { display: inline-block; padding: 5px 8px; border-radius: 4px; background: #f1f3f2; color: #58615e; font-size: var(--propora-text-caption); }
+.pd-factor-tag.is-positive { background: #edf5f0; color: #285b47; }
+.pd-factor-tag.is-caution { background: #fff2e4; color: #8a5421; }
+.pd-report-download-note { font-size: var(--propora-text-caption); color: #697270; line-height: 1.7; }
+.pd-business-report section[id], #laporan-lengkap { scroll-margin-top: 90px; }
+.pd-business-report button:focus-visible, .pd-business-report input:focus-visible { outline: 2px solid #792d35; outline-offset: 3px; }
+@media(min-width:801px) { .pd-business-report .compare-swot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pd-business-report .compare-swot-quadrant { border-top: 1px solid #e1e6e3; } }
+@media(max-width:760px) { .pd-report-heading { flex-direction: column; } .pd-report-factors { grid-template-columns: 1fr; } .pd-report-heading > button { width: 100%; } }

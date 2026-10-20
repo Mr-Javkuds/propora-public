@@ -1,0 +1,55 @@
+{
+  "name": "propora",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test:locale:browser": "playwright test tests/locale.playwright.mjs",
+    "test:integration": "node --test tests/marketplace.integration.mjs",
+    "test:endpoints": "node --test tests/endpoints.integration.mjs",
+    "test:ml": "node --test tests/ml.test.mjs",
+    "ml:prepare": "python scripts/export-ml.py",
+    "db:seed": "node scripts/seed.mjs",
+    "db:reset": "node scripts/seed.mjs --reset",
+    "test:collaboration": "node --test tests/collaboration.integration.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.118.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.57.0",
+    "next": "16.3.8",
+    "next-intl": "^4.14.9",
+    "pdf-lib": "^1.17.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "supabase": "2.121.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "packageManager": "bun@1.4.2",
+  "ignoreScripts": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "trustedDependencies": [
+    "sharp",
+    "unrs-resolver"
+  ]
+}

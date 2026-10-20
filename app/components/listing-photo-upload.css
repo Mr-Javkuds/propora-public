@@ -1,0 +1,24 @@
+.listing-photo-field { grid-column: 1 / -1; display: grid; gap: 10px; min-width: 0; }
+.listing-photo-heading { display: flex; align-items: center; gap: 10px; }
+.listing-photo-heading > strong { color: #29252a; font-size: 14px; }
+.listing-photo-heading > span { padding: 3px 8px; border-radius: 5px; background: #f4e9eb; color: #792d35; font-size: 11px; font-weight: 600; }
+.listing-photo-field > p, .listing-photo-field > small { margin: 0; color: #77717a; line-height: 1.6; font-size: 13px; }
+.listing-photo-dropzone { position: relative; display: flex; align-items: center; gap: 22px; min-height: 200px; padding: 28px; border: 1.5px dashed #d6b9bd; border-radius: 12px; background: #fcf9fa; transition: background .15s, border-color .15s; }
+.listing-photo-dropzone.is-dragging { background: #f6e9ec; border-color: #792d35; outline: 3px solid #792d31; }
+.listing-photo-icon { display: grid; place-items: center; flex: 0 0 62px; width: 62px; height: 62px; border-radius: 16px; color: #792d35; background: #f3e5e8; }
+.listing-photo-content { display: grid; justify-items: start; gap: 9px; min-width: 0; }
+.listing-photo-content > strong { color: #342c32; font-size: 15px; line-height: 1.5; }
+.listing-photo-content > p { margin: 0; color: #77717a; font-size: 13px; line-height: 1.6; }
+.listing-photo-content > small { color: #89818a; font-size: 12px; line-height: 1.5; }
+.owner-dashboard .listing-photo-choose { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; min-height: 42px; margin: 4px 0 2px; border: 1px solid #792d35; border-radius: 7px; background: #792d35; color: #fff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.owner-dashboard .listing-photo-choose:hover:not(:disabled) { background: #62232a; }
+.owner-dashboard .listing-photo-choose:focus-visible { outline: 3px solid #c88e99; outline-offset: 3px; }
+.owner-dashboard .listing-photo-choose:disabled { opacity: .6; cursor: wait; }
+.listing-photo-field .listing-photo-native, .listing-photo-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.listing-photo-preview { position: relative; flex: 0 0 200px; height: 150px; overflow: hidden; border-radius: 9px; background: #ece6e8; }
+.listing-photo-preview > img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.listing-photo-preview > span { position: absolute; bottom: 8px; left: 8px; right: 8px; display: flex; align-items: center; gap: 5px; width: fit-content; max-width: calc(100% - 16px); padding: 5px 8px; border-radius: 5px; background: #fffef5ed; color: #28705c; font-size: 11px; font-weight: 600; }
+.listing-photo-spinner { animation: listing-photo-spin .9s linear infinite; }
+@keyframes listing-photo-spin { to { transform: rotate(360deg); } }
+@media(max-width:600px) { .listing-photo-dropzone { flex-direction: column; align-items: stretch; gap: 16px; padding: 22px 18px; } .listing-photo-icon { flex-basis: auto; align-self: center; } .listing-photo-content { justify-items: center; text-align: center; } .listing-photo-preview { flex-basis: auto; width: 100%; height: 190px; } .owner-dashboard .listing-photo-choose { width: 100%; } }
+@media(prefers-reduced-motion:reduce) { .listing-photo-spinner { animation: none; } .listing-photo-dropzone { transition: none; } }

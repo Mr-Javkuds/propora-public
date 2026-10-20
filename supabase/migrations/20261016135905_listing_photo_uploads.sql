@@ -1,0 +1,3 @@
+insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('listing-photos','listing-photos',false,5242880,array['image/jpeg','image/png','image/webp']);
+create policy listing_photos_upload on storage.objects for insert to authenticated with check(bucket_id='listing-photos' and (storage.foldername(name))[1]=(select auth.uid())::text and (select private.account_role())='pemilik');
+create policy listing_photos_read on storage.objects for select to anon,authenticated using(bucket_id='listing-photos' and ((storage.foldername(name))[1]=(select auth.uid())::text or exists(select 1 from public.listings l where l.image='/api/listing-photos/'||storage.objects.name and l.status<>'draft')));

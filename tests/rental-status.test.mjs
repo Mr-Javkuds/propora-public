@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import ts from 'typescript';
+const output=ts.transpileModule(readFileSync(new URL('../app/lib/rental-status.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText;
+const result={exports:{}};new Function('exports','module',output)(result.exports,result);
+const label=result.exports.rentalStatusLabel;
+test('Pending applications never look approved or paid',()=>assert.equal(label({status:'pending',listingStatus:'available',payment:null}),'Menunggu persetujuan pemilik'));
+test('Approval is visible before payment',()=>assert.equal(label({status:'approved',listingStatus:'reserved',payment:null}),'Disetujui · Menunggu pembayaran'));
+test('An owner-recorded rental does not imply a payment receipt',()=>assert.equal(label({status:'approved',listingStatus:'rented',payment:null}),'Sedang disewa'));
+test('Only a persisted receipt reports payment complete',()=>assert.equal(label({status:'approved',listingStatus:'rented',payment:{id:'SIM-test'}}),'Lunas'));
+test('Closed and rejected applications keep their actual status',()=>{assert.equal(label({status:'withdrawn',payment:{id:'SIM-test'}}),'Dibatalkan');assert.equal(label({status:'rejected',payment:null}),'Ditolak pemilik');});

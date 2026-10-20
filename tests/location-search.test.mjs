@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import vm from 'node:vm';
+import ts from 'typescript';
+const compiled=ts.transpileModule(readFileSync(new URL('../app/api/owner/location-search/route.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText;
+function route(fetch,allowed=true){const exports={};vm.runInNewContext(compiled,{exports,URL,AbortSignal,Error,TypeError,process:{env:{}},fetch,require(name){if(name.endsWith('auth-server'))return {authorize:async()=>({error:allowed?null:Response.json({error:'Denied'},{status:401})})};if(name.endsWith('marketplace-api'))return {json:(data,status=200)=>Response.json(data,{status}),apiError:()=>Response.json({error:'Failed'},{status:500})};throw Error(name);}});return query=>exports.GET({nextUrl:new URL('http://localhost/api/owner/location-search?q='+encodeURIComponent(query))});}
+test('Search validates owner access and query before contacting the geocoder',async()=>{const unexpected=()=>{throw Error('Must not fetch');};assert.equal((await route(unexpected,false)('Semarang')).status,401);assert.equal((await route(unexpected)('ab')).status,400);});
+test('Search converts GeoJSON longitude/latitude order and discards invalid coordinates',async()=>{const get=route(async url=>{assert.equal(url.searchParams.get('q'),'Jalan Pemuda');assert.equal(url.searchParams.get('limit'),'5');return Response.json({features:[{geometry:{coordinates:[110.4115,-6.9822]},properties:{name:'Jalan Pemuda',city:'Semarang'}},{geometry:{coordinates:[999,200]},properties:{name:'Invalid'}}]});});const response=await get('Jalan Pemuda');assert.deepEqual((await response.json()).places,[{latitude:-6.9822,longitude:110.4115,label:'Jalan Pemuda, Semarang'}]);});
+test('Search handles provider failure and allows direct map selection',async()=>{for(const fetch of [async()=>new Response('',{status:503}),async()=>{throw new TypeError('network');}]){const response=await route(fetch)('Semarang');assert.equal(response.status,502);assert.match((await response.json()).error,/Pilih titik langsung/);}});

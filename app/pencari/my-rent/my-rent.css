@@ -1,0 +1,64 @@
+.my-rent-container { max-width: 1180px; }
+.my-rent-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.my-rent-heading .seeker-page-intro { margin-bottom: 0; }
+.my-rent-heading > button { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; border: 1px solid #dde4df; border-radius: 6px; background: #fff; color: #792d35; cursor: pointer; }
+.my-rent-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 28px 0 25px; }
+.my-rent-summary > div, .my-rent-summary > a { min-height: 112px; padding: 18px 20px; border: 1px solid #e0e6e1; border-radius: 6px; background: #fff; display: grid; grid-template-columns: 1fr auto; align-content: space-between; gap: 4px; }
+.my-rent-summary svg { grid-column: 2; grid-row: 1; color: #792d35; }
+.my-rent-summary span { grid-column: 1; grid-row: 1; align-self: center; color: #697270; font-size: var(--propora-text-label); font-weight: var(--propora-weight-bold); }
+.my-rent-summary strong { grid-column: 1 / -1; font-size: var(--propora-text-page); line-height: 1; color: #25292b; }
+.my-rent-summary > a { color: #792d35; text-decoration: none; font-weight: var(--propora-weight-bold); }
+.my-rent-summary > a svg:last-child { grid-column: 2; grid-row: 2; align-self: end; }
+.my-rent-summary > a span { color: #792d35; }
+.my-rent-tabs { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 13px; margin-bottom: 20px; border-bottom: 1px solid #e0e6e1; }
+.my-rent-tabs button { min-height: 38px; padding: 8px 13px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: #58615e; font: inherit; font-size: var(--propora-text-label); font-weight: var(--propora-weight-bold); cursor: pointer; }
+.my-rent-tabs button:hover { background: #f2f4f2; }
+.my-rent-tabs button[aria-pressed="true"] { border-color: #e8d4d6; background: #f8e9e9; color: #792d35; }
+.my-rent-grid { display: grid; gap: 18px; }
+.my-rent-card { min-width: 0; padding: 26px; border: 1px solid #e0e6e1; border-radius: 8px; background: #fff; }
+.my-rent-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.my-rent-property-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 5px; background: #edf3ef; color: #376b5d; }
+.my-rent-status { padding: 6px 10px; border-radius: 4px; background: #eff2f0; color: #58615e; font-size: var(--propora-text-caption); font-weight: var(--propora-weight-bold); text-align: right; }
+.my-rent-status.needs-payment { background: #f8e9e9; color: #792d35; }
+.my-rent-status.is-paid { background: #e8f5ec; color: #247543; }
+.my-rent-card h2 { margin: 12px 0 2px; color: #25292b; font-size: var(--propora-text-section); line-height: var(--propora-leading-heading); }
+.my-rent-address { margin: 0; color: #697270; font-size: var(--propora-text-label); }
+.my-rent-payment-callout { display: grid; grid-template-columns: 40px minmax(0, 1fr) minmax(210px, auto); align-items: center; gap: 15px; margin: 22px 0; padding: 18px; border: 1px solid #e2e7e2; border-radius: 6px; background: #f6f8f6; }
+.my-rent-payment-callout.is-actionable { border-color: #e8c9ce; background: #fff8f8; }
+.my-rent-payment-callout.is-complete { border-color: #d5e8dc; background: #f4faf6; }
+.my-rent-payment-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 5px; background: #e6ebe7; color: #58615e; }
+.is-actionable .my-rent-payment-icon { background: #f4e0e3; color: #792d35; }
+.is-complete .my-rent-payment-icon { background: #dceee2; color: #247543; }
+.my-rent-payment-copy > span { color: #792d35; font-size: var(--propora-text-caption); font-weight: var(--propora-weight-bold); letter-spacing: .6px; }
+.my-rent-payment-copy h3 { margin: 3px 0; font-size: var(--propora-text-title); line-height: var(--propora-leading-heading); }
+.my-rent-payment-copy p { margin: 0; color: #66716c; font-size: var(--propora-text-label); line-height: 1.5; }
+.my-rent-payment-copy small { display: inline-flex; align-items: center; gap: 5px; margin-top: 9px; color: #7a5c61; font-size: var(--propora-text-caption); }
+.my-rent-payment-action { display: grid; justify-items: stretch; gap: 3px; padding-left: 20px; border-left: 1px solid #ead9dc; }
+.my-rent-payment-action > span { color: #697270; font-size: var(--propora-text-caption); }
+.my-rent-payment-action strong { color: #25292b; font-size: var(--propora-text-title); }
+.my-rent-payment-action a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; margin-top: 7px; padding: 9px 14px; border-radius: 5px; background: #792d35; color: #fff; text-align: center; text-decoration: none; font-size: var(--propora-text-label); font-weight: var(--propora-weight-bold); }
+.my-rent-payment-action a:hover { background: #63242b; }
+.my-rent-receipt-link { justify-self: end; display: inline-flex; align-items: center; gap: 6px; color: #247543; font-size: var(--propora-text-label); font-weight: var(--propora-weight-bold); text-decoration: none; }
+.my-rent-period { display: grid; gap: 5px; padding: 15px 18px; border: 1px solid #e3e9e4; border-radius: 6px; background: #f7f9f7; }
+.my-rent-period > span { color: #697270; font-size: var(--propora-text-caption); }
+.my-rent-period > strong { color: #25292b; font-size: var(--propora-text-body); font-weight: var(--propora-weight-bold); }
+.my-rent-period strong span { margin: 0 8px; color: #8b9990; }
+.my-rent-period small, .my-rent-period p { margin: 0; color: #697270; font-size: var(--propora-text-caption); line-height: 1.5; }
+.my-rent-detail-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; margin: 24px 0; }
+.my-rent-detail-columns h3 { margin: 0 0 7px; font-size: var(--propora-text-title); }
+.my-rent-card dl { margin: 0; }
+.my-rent-card dl div { display: flex; justify-content: space-between; gap: 15px; padding: 9px 0; border-bottom: 1px solid #edf0ee; font-size: var(--propora-text-label); }
+.my-rent-card dt { color: #697270; }
+.my-rent-card dd { min-width: 0; margin: 0; overflow-wrap: anywhere; text-align: right; font-weight: var(--propora-weight-bold); }
+.my-rent-fineprint, .my-rent-no-receipt { color: #697270; font-size: var(--propora-text-caption); line-height: 1.6; }
+.my-rent-owner-note { padding: 14px 16px; border-left: 3px solid #b9c9be; background: #f7f9f7; font-size: var(--propora-text-label); }
+.my-rent-owner-note p { margin: 5px 0 0; color: #697270; }
+.my-rent-documents { margin: 20px 0; padding-top: 16px; border-top: 1px solid #edf0ee; font-size: var(--propora-text-label); }
+.my-rent-documents summary { color: #792d35; font-weight: var(--propora-weight-bold); cursor: pointer; }
+.my-rent-documents dl { margin-top: 12px; }
+.my-rent-actions { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 16px; border-top: 1px solid #edf0ee; }
+.my-rent-actions a { color: #792d35; font-size: var(--propora-text-label); font-weight: var(--propora-weight-bold); text-decoration: none; }
+.my-rent-container a:focus-visible, .my-rent-container button:focus-visible, .my-rent-documents summary:focus-visible { outline: 2px solid #792d35; outline-offset: 3px; }
+@media (max-width: 850px) { .my-rent-payment-callout { grid-template-columns: 40px minmax(0, 1fr); } .my-rent-payment-action, .my-rent-receipt-link { grid-column: 2; justify-self: stretch; } .my-rent-payment-action { padding: 12px 0 0; border-left: 0; border-top: 1px solid #ead9dc; } }
+@media (max-width: 720px) { .my-rent-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-rent-summary > a { grid-column: 1 / -1; min-height: 70px; } .my-rent-card { padding: 18px; } .my-rent-detail-columns { grid-template-columns: 1fr; gap: 20px; } }
+@media (max-width: 420px) { .my-rent-summary > div { min-height: 90px; padding: 14px; } .my-rent-summary span { font-size: var(--propora-text-caption); } .my-rent-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 10px; } .my-rent-tabs button { flex: 0 0 auto; } .my-rent-payment-callout { gap: 10px; padding: 14px; } .my-rent-payment-copy h3 { font-size: var(--propora-text-title); } .my-rent-payment-action strong { font-size: var(--propora-text-title); } }

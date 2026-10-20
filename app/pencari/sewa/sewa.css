@@ -1,0 +1,1823 @@
+.lease-dashboard,
+.lease-dashboard * {
+  box-sizing: border-box;
+}
+
+.lease-dashboard {
+  --lease-wine: #80302f;
+  --lease-dark: #202638;
+  --lease-muted: #857476;
+  --lease-lavender: #f0f2ff;
+
+  display: flex;
+  min-height: 100vh;
+  font-size: var(--propora-font-size);
+  line-height: 1.55;
+  color: var(--lease-dark);
+  background: #f8f9ff;
+  font-family: var(--propora-font-family);
+}
+
+.lease-dashboard button,
+.lease-dashboard input {
+  font: inherit;
+}
+
+.lease-dashboard button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lease-dashboard button:focus-visible,
+.lease-dashboard input:focus-visible {
+  outline: 2px solid #b8c1f4;
+  outline-offset: 2px;
+}
+
+.lease-dashboard svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+/* SIDEBAR */
+
+.lease-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex: 0 0 52px;
+  flex-direction: column;
+  align-items: center;
+  width: 52px;
+  height: 100vh;
+  min-height: 500px;
+  padding: 13px 0 12px;
+  background: #fff;
+  border-right: 1px solid #e9ebf6;
+}
+
+.lease-logo {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--lease-wine);
+  color: #fff;
+  font-size: var(--propora-text-label);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-nav,
+.lease-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.lease-sidebar-bottom {
+  margin-top: auto;
+}
+
+.lease-nav button,
+.lease-sidebar-bottom button {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #675a5d;
+}
+
+.lease-nav button.active,
+.lease-nav button:hover,
+.lease-sidebar-bottom button:hover {
+  background: var(--lease-wine);
+  color: #fff;
+}
+
+/* HEADER */
+
+.lease-app {
+  flex: 1;
+  min-width: 0;
+}
+
+.lease-topbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  height: 56px;
+  padding: 0 24px;
+  border-bottom: 1px solid #e9ebf6;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.lease-brand {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+}
+
+.lease-brand-icon {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 7px;
+  background: var(--lease-wine);
+  color: white;
+  font-size: var(--propora-text-body);
+}
+
+.lease-brand > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.lease-brand strong {
+  color: #762b2c;
+  font-size: var(--propora-text-label);
+  line-height: 1.2;
+}
+
+.lease-brand small {
+  color: #8d7d7f;
+  font-size: var(--propora-text-caption);
+  letter-spacing: 0.45px;
+}
+
+.lease-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(395px, 38%);
+  height: 29px;
+  padding: 0 11px;
+  border: 1px solid #ececf3;
+  border-radius: 7px;
+  color: #847779;
+  background: #fff;
+}
+
+.lease-search > span {
+  font-size: var(--propora-text-title);
+  line-height: 1;
+}
+
+.lease-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--lease-dark);
+  font-size: var(--propora-text-body);
+}
+
+.lease-search input::placeholder {
+  color: #9b8e91;
+}
+
+.lease-profile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.lease-notification {
+  position: relative;
+  padding-right: 15px;
+  border-right: 1px solid #e5e5ed;
+  color: #665658;
+  font-size: var(--propora-text-title);
+}
+
+.lease-notification i {
+  position: absolute;
+  top: 0;
+  right: 17px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lease-wine);
+}
+
+.lease-profile-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: right;
+}
+
+.lease-profile-copy strong {
+  font-size: var(--propora-text-caption);
+}
+
+.lease-profile-copy small {
+  color: #7b6d70;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #762527;
+  color: white;
+  font-size: var(--propora-text-label);
+}
+
+/* JUDUL HALAMAN */
+
+.lease-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 27px 14px;
+  background: linear-gradient(90deg, #f3f5ff, #f8f9ff);
+}
+
+.lease-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 9px;
+  color: #8d7b7d;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-breadcrumb button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.lease-breadcrumb strong {
+  color: #7e2e30;
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-page-head h1 {
+  margin: 0 0 5px;
+  color: #1b2335;
+  font-size: var(--propora-text-page);
+  letter-spacing: -0.65px;
+  line-height: var(--propora-leading-heading);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-page-head p {
+  margin: 0;
+  color: #78696b;
+  font-size: var(--propora-text-caption);
+  line-height: 1.5;
+}
+
+/* TAB STATUS */
+
+.lease-tabs {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #e9edff;
+}
+
+.lease-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #716568;
+  font-size: var(--propora-text-label);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-tabs button span {
+  display: grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 50%;
+  background: #dce2fb;
+  color: #757f9b;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-tabs button.selected {
+  background: var(--lease-wine);
+  color: white;
+}
+
+.lease-tabs button.selected span {
+  background: #f5bdb9;
+  color: #773234;
+}
+
+.lease-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 27px 10px;
+  padding: 9px 11px;
+  border: 1px solid #d9e1fb;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #424f77;
+  font-size: var(--propora-text-caption);
+  line-height: 1.5;
+}
+
+.lease-notice > span {
+  font-size: var(--propora-text-label);
+}
+
+.lease-notice button {
+  margin-left: auto;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: var(--propora-text-label);
+}
+
+/* GRID KONTEN */
+
+.lease-layout {
+  display: grid;
+  grid-template-columns: minmax(295px, 0.91fr) minmax(0, 1.88fr);
+  align-items: start;
+  gap: 20px;
+  padding: 2px 27px 28px;
+}
+
+.lease-list-column {
+  min-width: 0;
+}
+
+/* PENCARIAN LISTING */
+
+.lease-list-toolbar {
+  display: flex;
+  gap: 7px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #eff0f6;
+  border-radius: 10px;
+}
+
+.lease-list-toolbar label {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  gap: 7px;
+  padding: 0 8px;
+  height: 32px;
+  border-radius: 7px;
+  background: #f0f2ff;
+  color: #827579;
+}
+
+.lease-list-toolbar label > span {
+  font-size: var(--propora-text-title);
+}
+
+.lease-list-toolbar input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #2c3448;
+  font-size: var(--propora-text-body);
+}
+
+.lease-list-toolbar input::placeholder {
+  color: #96898d;
+}
+
+.lease-list-toolbar > button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 7px;
+  background: #f0f2ff;
+  color: #6e6671;
+}
+
+.lease-list-toolbar > button.filter-active {
+  background: #fbdedf;
+  color: var(--lease-wine);
+}
+
+.lease-filter-panel {
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid #eff0f6;
+  border-radius: 9px;
+  background: white;
+}
+
+.lease-filter-panel > strong {
+  font-size: var(--propora-text-caption);
+}
+
+.lease-filter-panel > div {
+  display: flex;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.lease-filter-panel button {
+  padding: 6px 9px;
+  border: 1px solid #e4e5ef;
+  border-radius: 6px;
+  background: #fff;
+  color: #666372;
+  font-size: var(--propora-text-label);
+}
+
+.lease-filter-panel button.chosen {
+  border-color: var(--lease-wine);
+  background: #fff1f1;
+  color: var(--lease-wine);
+}
+
+.lease-list-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 3px 9px;
+  color: #7c6c6f;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-list-count strong {
+  color: #756467;
+  font-weight: var(--propora-weight-bold);
+}
+
+/* KARTU SETIAP RUKO */
+
+.lease-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.lease-property-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  padding: 12px 11px 10px 14px;
+  text-align: left;
+  border: 1px solid #eff0f6;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(39, 43, 72, 0.025);
+  color: inherit;
+}
+
+.lease-property-card.is-selected {
+  border-color: transparent;
+  background: linear-gradient(
+    110deg,
+    #fff 0%,
+    #fff 75%,
+    #fffaf9 100%
+  );
+  box-shadow: 0 3px 5px rgba(47, 32, 36, 0.11);
+}
+
+.lease-property-card.is-selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 17px;
+  bottom: 20px;
+  width: 4px;
+  border-radius: 0 5px 5px 0;
+  background: var(--lease-wine);
+}
+
+.lease-property-card > img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #e5e8f2;
+}
+
+.lease-property-info {
+  min-width: 0;
+}
+
+.lease-card-badges {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.lease-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 150px;
+  padding: 5px 6px;
+  border-radius: 5px;
+  color: #584d50;
+  background: #e8edff;
+  font-size: var(--propora-text-caption);
+  line-height: 1.25;
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-status-chip.waiting-payment {
+  background: #fbdedf;
+  color: #843437;
+}
+
+.lease-status-chip.approved {
+  background: #c9fae5;
+  color: #006a4b;
+}
+
+.picked-label {
+  flex-shrink: 0;
+  color: #863a3b;
+  font-size: var(--propora-text-label);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-property-name {
+  display: block;
+  overflow: hidden;
+  color: #242b3d;
+  font-size: var(--propora-text-label);
+  line-height: 1.35;
+  font-weight: var(--propora-weight-bold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lease-property-address {
+  display: block;
+  overflow: hidden;
+  margin-top: 4px;
+  color: #7f7175;
+  font-size: var(--propora-text-caption);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lease-price-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 6px 7px;
+  border-radius: 7px;
+  background: #f8f8ff;
+}
+
+.lease-price-line > strong {
+  color: #7b2e30;
+  font-size: var(--propora-text-caption);
+  white-space: nowrap;
+}
+
+.lease-price-line > strong small {
+  color: #8f8588;
+  font-size: var(--propora-text-caption);
+  font-weight: var(--propora-weight-normal);
+}
+
+.lease-price-line > span {
+  color: #856d70;
+  font-size: var(--propora-text-caption);
+  white-space: nowrap;
+}
+
+.lease-card-footer {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 1px;
+  padding: 0 1px;
+  color: #947e81;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-property-card.is-selected
+  .lease-card-footer > span:first-child {
+  color: #873334;
+}
+
+.lease-card-footer > span:last-child {
+  white-space: nowrap;
+}
+
+.lease-empty {
+  padding: 20px;
+  border: 1px dashed #dfe2ef;
+  border-radius: 9px;
+  background: #fff;
+  color: #7b7378;
+  text-align: center;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-escrow-note {
+  display: flex;
+  gap: 9px;
+  margin-top: 13px;
+  padding: 13px;
+  border-radius: 12px;
+  background: #fbeef0;
+}
+
+.lease-escrow-note > span {
+  color: #7d3031;
+  font-size: var(--propora-text-body);
+}
+
+.lease-escrow-note strong {
+  display: block;
+  color: #44363b;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-escrow-note p {
+  margin: 5px 0 0;
+  color: #826d70;
+  font-size: var(--propora-text-caption);
+  line-height: 1.55;
+}
+
+/* DETAIL PENGAJUAN */
+
+.lease-detail-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.lease-selected-card,
+.lease-progress-card,
+.lease-payment-card,
+.lease-documents-card,
+.lease-timeline-card {
+  min-width: 0;
+  border: 1px solid #eff0f6;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(35, 39, 72, 0.025);
+}
+
+.lease-selected-card {
+  padding: 18px 20px;
+}
+
+.lease-selected-topline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 70px;
+  margin-bottom: 10px;
+  color: #816c70;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-selected-topline > span {
+  padding: 5px 7px;
+  border-radius: 5px;
+  background: #fbdedf;
+  color: #82666a;
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-selected-topline > b {
+  color: #a9a0a5;
+}
+
+.lease-selected-topline > small {
+  color: #5f5c67;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-selected-main {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.lease-selected-main > img {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #e8e9f1;
+}
+
+.lease-selected-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.lease-selected-copy h2 {
+  margin: 0 0 5px;
+  color: #202739;
+  font-size: var(--propora-text-section);
+  line-height: var(--propora-leading-heading);
+  font-weight: var(--propora-weight-bold);
+  letter-spacing: -0.2px;
+}
+
+.lease-selected-copy p {
+  margin: 0;
+  color: #826d70;
+  font-size: var(--propora-text-caption);
+  line-height: 1.45;
+}
+
+.lease-selected-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.lease-selected-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 33px;
+  padding: 0 9px;
+  border: 1px solid #eceef8;
+  border-radius: 7px;
+  background: #f3f5ff;
+  color: #803333;
+  font-size: var(--propora-text-label);
+  font-weight: var(--propora-weight-bold);
+  white-space: nowrap;
+}
+
+.lease-selected-actions button:last-child {
+  background: #f0f2ff;
+  color: #252d42;
+}
+
+.lease-selected-actions svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* PROGRES */
+
+.lease-progress-card {
+  padding: 20px 21px 18px;
+}
+
+.lease-progress-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.lease-progress-title > strong {
+  color: #937f81;
+  font-size: var(--propora-text-caption);
+  letter-spacing: 0.2px;
+}
+
+.lease-progress-title > b {
+  color: #8d3638;
+  font-size: var(--propora-text-caption);
+  text-align: right;
+}
+
+.lease-progress-line {
+  height: 3px;
+  margin: 0 18px -18px;
+  border-radius: 4px;
+  background: #e4e8fc;
+}
+
+.lease-progress-fill {
+  height: 100%;
+  width: 60%;
+  border-radius: 4px;
+  background: #80302f;
+  transition: width 0.2s ease;
+}
+
+.lease-progress-fill.stage-4 {
+  width: 80%;
+}
+
+.lease-progress-fill.stage-5 {
+  width: 100%;
+}
+
+.lease-stages {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.lease-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-align: center;
+  color: #99909b;
+}
+
+.lease-stage-icon {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 9px;
+  border: 3px solid #f5f6ff;
+  border-radius: 50%;
+  background: #e9edff;
+  color: #a0a8c3;
+  font-size: var(--propora-text-caption);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-stage.done .lease-stage-icon {
+  background: #00553b;
+  color: white;
+  border-color: #00553b;
+}
+
+.lease-stage.current .lease-stage-icon {
+  width: 41px;
+  height: 41px;
+  margin-top: -3px;
+  margin-bottom: 6px;
+  border: 3px solid #f4dada;
+  background: #863536;
+  color: white;
+  box-shadow: 0 0 0 2px #f1d9d9;
+  font-size: var(--propora-text-body);
+}
+
+.lease-stage strong {
+  color: #33394b;
+  font-size: var(--propora-text-caption);
+  line-height: 1.35;
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-stage small {
+  margin-top: 4px;
+  color: #a0969c;
+  font-size: var(--propora-text-caption);
+  line-height: 1.35;
+}
+
+.lease-stage.current small {
+  color: #9e3d3e;
+}
+
+.lease-stage em {
+  margin-top: 5px;
+  padding: 5px 7px;
+  border-radius: 15px;
+  background: #fbdedf;
+  color: #86393a;
+  font-size: var(--propora-text-caption);
+  font-style: normal;
+  font-weight: var(--propora-weight-bold);
+}
+
+/* PEMBAYARAN DAN DOKUMEN */
+
+.lease-lower-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.82fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.lease-payment-card {
+  padding: 20px;
+}
+
+.lease-payment-intro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #fbe8e8, #f0f1ff);
+}
+
+.lease-payment-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #843132;
+  color: #fff;
+}
+
+.lease-payment-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.lease-payment-intro h3 {
+  margin: 0 0 5px;
+  color: #7d3031;
+  font-size: var(--propora-text-title);
+  line-height: var(--propora-leading-heading);
+}
+
+.lease-payment-intro p {
+  margin: 0;
+  color: #826d70;
+  font-size: var(--propora-text-caption);
+  line-height: 1.5;
+}
+
+.lease-payment-intro p strong {
+  color: #34384a;
+}
+
+.lease-deadline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #ffe4e2;
+  border-radius: 10px;
+  background: #fff0ef;
+}
+
+.deadline-clock {
+  color: #b92828;
+  font-size: var(--propora-text-section);
+}
+
+.lease-deadline > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.lease-deadline small {
+  display: block;
+  color: #c12f30;
+  font-size: var(--propora-text-caption);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-deadline > div strong {
+  display: block;
+  margin-top: 3px;
+  color: #9a2829;
+  font-size: var(--propora-text-label);
+  line-height: 1.25;
+}
+
+.lease-deadline p {
+  margin: 0;
+  color: #7c6c72;
+  font-size: var(--propora-text-caption);
+  text-align: right;
+  line-height: 1.55;
+}
+
+.lease-deadline p strong {
+  color: #303548;
+}
+
+.lease-va-card {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f4f5ff;
+}
+
+.lease-bank-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.bca-logo {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 31px;
+  border-radius: 5px;
+  background: white;
+  color: #164981;
+  font-size: var(--propora-text-caption);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-bank-head > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.lease-bank-head > div strong {
+  color: #252c3e;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-bank-head > div small {
+  color: #8c777b;
+  font-size: var(--propora-text-caption);
+}
+
+.auto-badge {
+  padding: 5px 7px;
+  border-radius: 5px;
+  background: #c5f7e5;
+  color: #006449;
+  font-size: var(--propora-text-caption);
+  font-weight: var(--propora-weight-bold);
+  white-space: nowrap;
+}
+
+.lease-va-number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 9px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lease-va-number > div {
+  min-width: 0;
+}
+
+.lease-va-number small {
+  display: block;
+  margin-bottom: 3px;
+  color: #9a8789;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-va-number strong {
+  display: block;
+  color: #1c2436;
+  font-size: var(--propora-text-label);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.lease-va-number button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: #fbdedf;
+  color: #843436;
+  font-size: var(--propora-text-label);
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-va-number button svg {
+  width: 12px;
+  height: 12px;
+}
+
+.lease-payment-total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.lease-payment-total > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lease-payment-total > div > span {
+  color: #887276;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-payment-total > div > small {
+  color: #0a664b;
+  font-size: var(--propora-text-caption);
+  line-height: 1.4;
+}
+
+.lease-payment-total > strong {
+  color: #803132;
+  font-size: var(--propora-text-section);
+  text-align: right;
+  line-height: 1.05;
+}
+
+.lease-payment-total > strong small {
+  display: block;
+  max-width: 130px;
+  margin-top: 5px;
+  color: #a18b8f;
+  font-size: var(--propora-text-caption);
+  font-weight: var(--propora-weight-normal);
+  line-height: 1.4;
+}
+
+.lease-payment-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.lease-payment-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: var(--propora-text-label);
+  font-weight: var(--propora-weight-bold);
+}
+
+.confirm-payment {
+  flex: 1;
+  background: var(--lease-wine);
+  color: white;
+}
+
+.confirm-payment > span {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.change-method {
+  background: #fff;
+  color: #843638;
+}
+
+.lease-method-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ececf4;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lease-method-picker > strong {
+  margin-bottom: 3px;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-method-picker button {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ececf4;
+  border-radius: 6px;
+  background: #fff;
+  color: #4b4f5e;
+  font-size: var(--propora-text-label);
+}
+
+.lease-method-picker button.selected {
+  border-color: #d6a2a3;
+  background: #fff2f2;
+  color: #803132;
+}
+
+.lease-supported-banks {
+  margin: 18px 3px 1px;
+  color: #958184;
+  font-size: var(--propora-text-caption);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* KOLOM KANAN */
+
+.lease-right-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  min-width: 0;
+}
+
+.lease-documents-card,
+.lease-timeline-card {
+  padding: 18px;
+}
+
+.lease-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.lease-panel-heading h3 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: #242b3e;
+  font-size: var(--propora-text-title);
+}
+
+.lease-panel-heading h3 svg {
+  width: 16px;
+  height: 16px;
+  color: #843536;
+}
+
+.lease-panel-heading > span {
+  color: #9b888d;
+  font-size: var(--propora-text-caption);
+  white-space: nowrap;
+}
+
+.lease-document-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #f7f8ff;
+}
+
+.document-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 31px;
+  border-radius: 7px;
+  font-size: var(--propora-text-body);
+}
+
+.document-icon.pdf {
+  background: #fbdedf;
+  color: #963f41;
+}
+
+.document-icon.receipt {
+  background: #eef0ff;
+  color: #656c94;
+}
+
+.document-icon.lock {
+  background: #e5eaff;
+  color: #9fa6c3;
+}
+
+.lease-document-row > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lease-document-row > div strong {
+  overflow-wrap: anywhere;
+  color: #424253;
+  font-size: var(--propora-text-caption);
+}
+
+.lease-document-row > div small {
+  color: #958286;
+  font-size: var(--propora-text-caption);
+  line-height: 1.4;
+}
+
+.lease-document-row > button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  background: white;
+  color: #8a3638;
+  font-size: var(--propora-text-label);
+}
+
+.lease-document-row > button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.lease-document-row.locked > div small {
+  padding: 4px 6px;
+  border-radius: 5px;
+  background: #fceaea;
+  color: #a46466;
+}
+
+.lock-symbol {
+  color: #b4a6aa;
+  font-size: var(--propora-text-label);
+}
+
+/* LINIMASA */
+
+.live-sync {
+  color: #075d47 !important;
+  font-weight: var(--propora-weight-bold);
+}
+
+.lease-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 6px;
+}
+
+.lease-timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 10px;
+  bottom: 8px;
+  width: 2px;
+  background: #e2e6fd;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 22px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #f5d9d9;
+  border-radius: 50%;
+  background: #873737;
+}
+
+.timeline-item.success .timeline-dot {
+  border-color: #a5f1d5;
+  background: #00664a;
+}
+
+.timeline-item:not(.latest):not(.success) .timeline-dot {
+  border-color: #e1e5fb;
+  background: #dce2fc;
+}
+
+.timeline-item > small {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  color: #9b777a;
+  font-size: var(--propora-text-caption);
+}
+
+.timeline-item > small b {
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: #fbdedf;
+  color: #8b383a;
+  font-size: var(--propora-text-caption);
+}
+
+.timeline-item > strong {
+  color: #2b3144;
+  font-size: var(--propora-text-caption);
+  line-height: 1.45;
+}
+
+.timeline-item > p {
+  margin: 0;
+  color: #8e7b7f;
+  font-size: var(--propora-text-caption);
+  line-height: 1.55;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 1180px) {
+  .lease-topbar {
+    padding: 0 15px;
+    gap: 11px;
+  }
+
+  .lease-page-head {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  .lease-layout {
+    grid-template-columns: minmax(270px, 0.85fr) minmax(0, 1.55fr);
+    gap: 13px;
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  .lease-selected-card {
+    padding: 15px;
+  }
+
+  .lease-selected-main {
+    flex-wrap: wrap;
+  }
+
+  .lease-selected-actions {
+    margin-left: 69px;
+  }
+
+  .lease-lower-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lease-right-stack {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 850px) {
+  .lease-page-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .lease-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lease-list-column {
+    order: 1;
+  }
+
+  .lease-detail-column {
+    order: 0;
+  }
+
+  .lease-right-stack {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .lease-search {
+    width: min(320px, 38%);
+  }
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 600px) {
+  .lease-sidebar {
+    flex-basis: 44px;
+    width: 44px;
+  }
+
+  .lease-logo {
+    width: 29px;
+    height: 29px;
+  }
+
+  .lease-nav button,
+  .lease-sidebar-bottom button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .lease-topbar {
+    height: 49px;
+    min-height: 49px;
+    padding: 0 9px;
+    gap: 8px;
+  }
+
+  .lease-brand-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .lease-brand strong {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-brand small {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-search {
+    flex: 1;
+    width: auto;
+    height: 27px;
+  }
+
+  .lease-search input {
+    font-size: var(--propora-text-body);
+  }
+
+  .lease-profile {
+    gap: 6px;
+  }
+
+  .lease-profile-copy,
+  .lease-notification {
+    display: none;
+  }
+
+  .lease-profile-avatar {
+    width: 25px;
+    height: 25px;
+  }
+
+  .lease-page-head {
+    padding: 12px 11px;
+    gap: 12px;
+  }
+
+  .lease-page-head h1 {
+    font-size: var(--propora-text-page);
+  }
+
+  .lease-page-head p {
+    font-size: var(--propora-text-caption);
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .lease-tabs {
+    max-width: 100%;
+    gap: 2px;
+  }
+
+  .lease-tabs button {
+    gap: 5px;
+    padding: 7px 9px;
+    font-size: var(--propora-text-label);
+  }
+
+  .lease-layout {
+    padding: 10px 10px 22px;
+    gap: 13px;
+  }
+
+  .lease-selected-card,
+  .lease-progress-card,
+  .lease-payment-card,
+  .lease-documents-card,
+  .lease-timeline-card {
+    border-radius: 11px;
+  }
+
+  .lease-selected-card {
+    padding: 12px;
+  }
+
+  .lease-selected-topline {
+    margin-left: 0;
+    flex-wrap: wrap;
+  }
+
+  .lease-selected-main {
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .lease-selected-main > img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .lease-selected-copy h2 {
+    font-size: var(--propora-text-section);
+  }
+
+  .lease-selected-copy p {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-selected-actions {
+    margin: 0;
+    width: 100%;
+  }
+
+  .lease-selected-actions button {
+    flex: 1;
+    font-size: var(--propora-text-label);
+  }
+
+  .lease-progress-card {
+    padding: 13px 9px;
+  }
+
+  .lease-progress-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+
+  .lease-progress-line {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .lease-stage-icon {
+    width: 27px;
+    height: 27px;
+    margin-bottom: 7px;
+  }
+
+  .lease-stage.current .lease-stage-icon {
+    width: 32px;
+    height: 32px;
+    margin-top: -2px;
+    margin-bottom: 4px;
+  }
+
+  .lease-stage strong {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-stage small {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-stage em {
+    padding: 4px;
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-lower-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .lease-payment-card {
+    padding: 12px;
+  }
+
+  .lease-payment-intro {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .lease-payment-intro h3 {
+    font-size: var(--propora-text-title);
+  }
+
+  .lease-deadline {
+    padding: 9px 7px;
+    gap: 6px;
+  }
+
+  .lease-deadline > div strong {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-deadline p {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-va-card {
+    padding: 10px;
+  }
+
+  .lease-va-number {
+    flex-wrap: wrap;
+  }
+
+  .lease-va-number strong {
+    font-size: var(--propora-text-label);
+  }
+
+  .lease-payment-total > strong {
+    font-size: var(--propora-text-title);
+  }
+
+  .lease-right-stack {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .lease-documents-card,
+  .lease-timeline-card {
+    padding: 13px;
+  }
+
+  .lease-property-card {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .lease-property-card > img {
+    width: 68px;
+    height: 76px;
+  }
+
+  .lease-card-badges {
+    flex-wrap: wrap;
+  }
+
+  .lease-property-name {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-price-line {
+    flex-wrap: wrap;
+  }
+
+  .lease-price-line > strong {
+    font-size: var(--propora-text-caption);
+  }
+
+  .lease-notice {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
